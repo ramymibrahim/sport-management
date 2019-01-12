@@ -1,0 +1,2 @@
+1. Replace old menu with the current one
+2. Review MVC Architecture

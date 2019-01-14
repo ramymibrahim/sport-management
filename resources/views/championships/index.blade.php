@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+<a href="{{url('championships/create')}}" class="btn btn-success">Create</a>
 <table class='table'>
     <thead>
         <tr>
@@ -10,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($championships as $c)    
+    @foreach($championships as $c)
     <tr>
             <td>{{$c['id']}}</td>
             <td>{{$c['name']}}</td>

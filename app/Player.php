@@ -15,7 +15,7 @@ class Player extends Model
         return $this->belongsTo('App\Coatch');
     }
 
-    function  championshipEvent(){
+    function championshipEvent(){
         return $this->belongsToMany('App\ChampionshipEvent');
     }
 }

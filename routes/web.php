@@ -16,4 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/championships','Championships@index');
+Route::get('/championships/create','Championships@create');
+Route::post('/championships/store','Championships@store');
 Route::get('/events','Events@index');

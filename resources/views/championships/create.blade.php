@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<form action="{{url('/championships/store')}}" method="POST">
+<form action="{{url('/championships')}}" method="POST">
     {{ csrf_field() }}
     @if ($errors->any())
         {!! implode('', $errors->all('<div>:message</div>')) !!}

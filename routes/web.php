@@ -15,7 +15,14 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/championships','Championships@index');
-Route::get('/championships/create','Championships@create');
-Route::post('/championships/store','Championships@store');
-Route::get('/events','Events@index');
+// Route::get('/championships','ChampionshipController@index');
+// Route::get('/championships/create','ChampionshipController@create');
+// Route::post('/championships','ChampionshipController@store');
+// Route::get('/championships/{id}','ChampionshipController@show');
+// Route::get('/championships/{id}/edit','ChampionshipController@edit');
+// Route::put('/championships/{id}','ChampionshipController@update');
+// Route::delete('/championships/{id}','ChampionshipController@destroy');
+
+Route::resource('championships', 'ChampionshipController');
+
+//Route::get('/events','Events@index');

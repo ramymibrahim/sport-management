@@ -4,8 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 class Championship extends Model
 {
     public $timestamps=false;
-    protected $guarded=[];
-    // protected $fillable=[];
+    //protected $guarded=[];
+    protected $fillable=['name','start_date','end_date'];
     function events(){
         return $this->belongsToMany('App\Event');
     }
@@ -17,4 +17,10 @@ class Championship extends Model
             'end_date' => 'required'
         ];
     }
+
+    // public function fillMe($data){
+    //     foreach($this->fillable as $field){
+    //         $this[$field]=$data[$field];
+    //     }
+    // }
 }

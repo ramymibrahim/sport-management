@@ -8,6 +8,7 @@
             <th>Name</th>
             <th>Start Date</th>
             <th>End Date</th>
+            <th colspan="3">Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -17,7 +18,17 @@
             <td>{{$c['name']}}</td>
             <td>{{$c['start_date']}}</td>
             <td>{{$c['end_date']}}</td>
-        </tr>
+            <td>
+                <a href="{{url('/championships/'.$c['id'].'/edit')}}" class="btn btn-primary">Edit</a>
+            </td>
+        <td>
+            <form action="{{url('/championships/'.$c['id'])}}" method="POST">
+                {{csrf_field()}}
+                {{ method_field('DELETE') }}
+                <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>
+            </form>
+        </td>
+    </tr>
     @endforeach
     </tbody>
 </table>    

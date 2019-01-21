@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\Event;
-class Events extends Controller
+class EventController extends Controller
 {
     //
     function index(){

@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-<a href="{{url('events/create')}}" class="btn btn-success">Create</a>
+<a href="{{url('clubs/create')}}" class="btn btn-success">Create</a>
 <table class='table'>
     <thead>
         <tr>
@@ -10,16 +10,16 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($events as $event)        
+    @foreach($clubs as $club)        
     <tr>
-            <td>{{$event['id']}}</td>
-            <td>{{$event['name']}}</td>  
+            <td>{{$club['id']}}</td>
+            <td>{{$club['name']}}</td>  
 
             <td>
-                <a href="{{url('/events/'.$event['id'].'/edit')}}" class="btn btn-primary">Edit</a>
+                <a href="{{url('/clubs/'.$club['id'].'/edit')}}" class="btn btn-primary">Edit</a>
             </td>
         <td>
-            <form action="{{url('/events/'.$event['id'])}}" method="POST">
+            <form action="{{url('/clubs/'.$club['id'])}}" method="POST">
                 {{csrf_field()}}
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure ?')">Delete</button>

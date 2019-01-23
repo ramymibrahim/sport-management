@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+
 <a href="{{url('championships/create')}}" class="btn btn-success">Create</a>
 <table class='table'>
     <thead>
@@ -8,7 +9,7 @@
             <th>Name</th>
             <th>Start Date</th>
             <th>End Date</th>
-            <th colspan="3">Actions</th>
+            <th colspan="2">Actions</th>
         </tr>
     </thead>
     <tbody>

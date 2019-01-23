@@ -496,6 +496,9 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    @if(Session::has('message'))
+      <div class="alert {{Session::get('alert-class')}}">{{Session::get('message')}}</div>
+    @endif
     @yield('content')
   </div>
   <!-- /.content-wrapper -->

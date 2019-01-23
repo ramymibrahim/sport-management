@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Championship;
 use Validator;
+use Session;
 class ChampionshipController extends Controller
 {
     function index(){
@@ -24,10 +25,12 @@ class ChampionshipController extends Controller
         $validator = Validator::make($request->all(),Championship::rules());
         if ($validator->fails())
         {           
-            return redirect()->back()->withErrors($validator->errors());
+            return redirect()->back()->withErrors($validator->errors())->withInput($request->all());
         }
         $championship = new Championship($request->all());
         $championship->save();
+        Session::flash('message', 'Record Created Successfully!'); 
+        Session::flash('alert-class', 'alert-success'); 
         return redirect('/championships');
     }
 
@@ -43,12 +46,16 @@ class ChampionshipController extends Controller
         // $championship['end_date']=$request['end_date'];
         $championship->fill($request->all());
         $championship->save();
+        Session::flash('message', 'Record Updated Successfully!'); 
+        Session::flash('alert-class', 'alert-success'); 
         return redirect('/championships');
     }
 
     function destroy($id){
         $championship = Championship::findOrFail($id);        
         $championship->delete();
+        Session::flash('message', 'Record Deleted Successfully!'); 
+        Session::flash('alert-class', 'alert-warning'); 
         return redirect('/championships');
     }
 }

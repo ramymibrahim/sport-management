@@ -39,7 +39,7 @@ class Plyer extends Migration
      */
     public function down()
     {        Schema::dropIfExists('players');
-        Schema::dropIfExists('coaches');
+                Schema::dropIfExists('coaches');
 
         //
     }

@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\Event;
+use \App\Club;
 use Validator;
 use Session;
-class EventController extends Controller
+class ClubController extends Controller
 {
     function index(){
-        $events=Event::all();        
-        return view('events.index')->with('events',$events);
+        $clubs=Club::all();        
+        return view('clubs.index')->with('clubs',$clubs);
     }
 
     function show(){
@@ -18,44 +18,44 @@ class EventController extends Controller
     }
 
     function create(){
-        return view('events.create');
+        return view('clubs.create');
     }
 
     function store(Request $request){        
-        $validator = Validator::make($request->all(),Event::rules());
+        $validator = Validator::make($request->all(),Club::rules());
         if ($validator->fails())
         {           
             return redirect()->back()->withErrors($validator->errors())->withInput($request->all());
         }
-        $event = new Event($request->all());
-        $event->save();
+        $club = new Club($request->all());
+        $club->save();
         Session::flash('message', 'Record Created Successfully!'); 
         Session::flash('alert-class', 'alert-success'); 
-        return redirect('/events');
+        return redirect('/clubs');
     }
 
     function edit($id){
-        $event = Event::findOrFail($id);
-        return view('events.edit')->with('event',$event);
+        $club = Club::findOrFail($id);
+        return view('clubs.edit')->with('club',$club);
     }
 
     function update($id,Request $request){
-        $event = Event::findOrFail($id);
-        // $event['name']=$request['name'];
-        // $event['start_date']=$request['start_date'];
-        // $event['end_date']=$request['end_date'];
-        $event->fill($request->all());
-        $event->save();
+        $club = Club::findOrFail($id);
+        // $club['name']=$request['name'];
+        // $club['start_date']=$request['start_date'];
+        // $club['end_date']=$request['end_date'];
+        $club->fill($request->all());
+        $club->save();
         Session::flash('message', 'Record Updated Successfully!'); 
         Session::flash('alert-class', 'alert-success'); 
-        return redirect('/events');
+        return redirect('/clubs');
     }
 
     function destroy($id){
-        $event = Event::findOrFail($id);        
-        $event->delete();
+        $club = Club::findOrFail($id);        
+        $club->delete();
         Session::flash('message', 'Record Deleted Successfully!'); 
         Session::flash('alert-class', 'alert-warning'); 
-        return redirect('/events');
+        return redirect('/clubs');
     }
 }

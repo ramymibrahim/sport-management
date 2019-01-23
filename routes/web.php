@@ -24,5 +24,8 @@ Route::get('/', function () {
 // Route::delete('/championships/{id}','ChampionshipController@destroy');
 
 Route::resource('championships', 'ChampionshipController');
+Route::resource('events', 'EventController');
+Route::resource('clubs', 'ClubController');
+Route::resource('coaches', 'CoachController');
 
 //Route::get('/events','Events@index');

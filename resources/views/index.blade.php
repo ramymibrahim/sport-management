@@ -1,4 +1,9 @@
+@if(app()->getLocale()=='ar')
 @extends('layouts.admin')
+@else
+@extends('layouts.admin')
+@endif
+
 @section('content')
 <!-- Content Header (Page header) -->
 <section class="content-header">

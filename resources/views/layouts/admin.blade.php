@@ -37,6 +37,9 @@
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+
+  <link rel="stylesheet" href="{{url('css/'.__('main.style'))}}">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -329,8 +332,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
+            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> {{__('main.championships')}}</a></li>
+            <li><a href="index2.html"><i class="fa fa-circle-o"></i> @Lang('main.events')</a></li>
           </ul>
         </li>
         <li class="treeview">

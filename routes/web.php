@@ -29,3 +29,11 @@ Route::resource('clubs', 'ClubController');
 Route::resource('coaches', 'CoachController');
 
 //Route::get('/events','Events@index');
+Auth::routes();
+
+Route::get('lang/{locale}', function ($locale) {            
+    Session::put('locale', $locale);      
+    return redirect('/');
+});
+
+Route::get('/home', 'HomeController@index')->name('home');
